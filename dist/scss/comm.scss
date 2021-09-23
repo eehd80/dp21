@@ -672,7 +672,7 @@
 .mBnr {
     position: relative;
     height: 300px;
-    background: 50% / cover no-repeat fixed;
+    background: url(../../images/main/bg-bnr1.jpg) 50% / cover no-repeat fixed;
     &::before {
         content: "";
         position: absolute;
