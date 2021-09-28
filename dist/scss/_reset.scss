@@ -267,6 +267,20 @@ legend {
     border-collapse: collapse;
     border-spacing: 0;
 }
+.pc {
+    display: block;
+}
+.m {
+    display: none;
+}
+@media screen and (max-width: 992px) {
+    .pc {
+        display: none;
+    }
+    .m {
+        display: block;
+    }
+}
 
 /* 테이블 초기화 */
 

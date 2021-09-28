@@ -9,16 +9,19 @@
 }
 
 // layout
-.wrap {
-    // padding-top: 90px;
-}
 .container {
     display: block;
     position: relative;
-    //min-width: 1200px; // width : 최소 1200px
-    max-width: 1200px; // width : 최대 1476px
+    max-width: 1200px;
     margin: 0 auto;
-    // padding: 100px 0;
+}
+// tablet
+@media screen and (max-width: 992px) {
+    .container {
+        width: 96%;
+        margin: 0 auto;
+        padding: 0;
+    }
 }
 
 // common
@@ -222,9 +225,48 @@
         }
     }
 }
+@media screen and (max-width: 992px) {
+    #header {
+        .container {
+            height: 60px;
+        }
+        .navbar {
+            // background-color: red;
+            padding: 0;
+        }
+        .navbar-ham {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+
+            .la-bars {
+                font-size: 30px;
+                color: $w;
+            }
+        }
+        .gnb-wrap {
+            &.active {
+                #gnb {
+                    display: block;
+                    width: 100%;
+                    background-color: $w;
+                    position: fixed;
+                    top: 60px;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+            .nav-bg {
+                display: none;
+            }
+        }
+    }
+}
 
 // mVisual
 .mVisual {
+    overflow: hidden;
     position: relative;
     height: 100vh;
 
@@ -437,6 +479,34 @@
     }
 }
 
+@media screen and (max-width: 992px) {
+    .mVisual {
+        height: 60vh;
+        .swiper-slide {
+            height: 60vh;
+            transform: scale(0.85);
+            transform-origin: 50% 100%;
+        }
+        .swiper-business {
+            .business-txt {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+            }
+            .business-bg {
+                display: none;
+            }
+            .btn-bottom {
+                margin-top: 2rem;
+            }
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            display: none;
+        }
+    }
+}
+
 // main
 .mNews {
     position: relative;
@@ -534,8 +604,51 @@
         }
     }
 }
+@media screen and (max-width: 992px) {
+    .mNews {
+        padding: 50px 0 30px;
+        .container {
+            flex-direction: column;
+            padding-left: 0;
+        }
+        .mTit_area {
+            position: static;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .mTit {
+            transform: scale(0.7);
+            transform-origin: 0 50%;
+        }
+        .mTit_txt {
+            display: none;
+            margin-top: 15px;
+        }
+        .btn_more {
+            top: 23px;
+            left: auto;
+            right: 0;
+            transform: scale(0.7);
+            transform-origin: 100% 50%;
+            background-color: #666;
+        }
+        .mNews_lst {
+            li {
+                float: none;
+                width: 100%;
+                padding: 5px 0 30px;
+                border-left: none;
+                border-bottom: 1px solid #ddd;
+            }
+            .date {
+                display: none;
+            }
+        }
+    }
+}
 
 .mIcoBnr {
+    overflow: hidden;
     margin-bottom: 100px;
     .container {
         // overflow: hidden;
@@ -611,6 +724,35 @@
         .swiper-button-next {
             right: -160px;
             background-position: -60px 0;
+        }
+    }
+}
+@media screen and (max-width: 992px) {
+    .mIcoBnr {
+        .mTit_area {
+            position: static;
+            height: auto;
+            margin-bottom: 20px;
+            padding: 0;
+            .mTit {
+                transform: scale(0.7);
+                transform-origin: 0 50%;
+            }
+            .mTit_txt {
+                display: none;
+            }
+        }
+        .mIco-slick {
+            width: 100%;
+            margin: 0;
+            a {
+                width: 96%;
+                height: 500px;
+            }
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none;
+            }
         }
     }
 }
@@ -696,6 +838,14 @@
         font-weight: 900;
     }
 }
+@media screen and (max-width: 992px) {
+    .mBnr {
+        p {
+            width: 80%;
+            margin: auto;
+        }
+    }
+}
 
 .mContacts {
     margin: 100px 0;
@@ -729,6 +879,42 @@
         font-weight: 500;
         line-height: 45px;
         letter-spacing: -1px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .mContacts {
+        overflow: hidden;
+        margin: 50px 0;
+        .mTit {
+            margin-bottom: 20px;
+            transform: scale(0.7);
+            transform-origin: 0 50%;
+        }
+        .col-md-6 {
+            margin-bottom: 5px;
+        }
+        .mt-3 {
+            margin-top: 0 !important;
+        }
+    }
+}
+
+.btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    .btn {
+        margin: 0 10px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .btn-wrap {
+        justify-content: space-between;
+        .btn {
+            width: 48%;
+            margin: 0;
+            padding: 0;
+        }
     }
 }
 
@@ -905,6 +1091,43 @@ footer {
         font-size: 13px;
     }
 }
+@media screen and (max-width: 992px) {
+    footer {
+        text-align: center;
+        .f_mark {
+            overflow: hidden;
+            float: none;
+            width: 100%;
+            li {
+                display: inline-block;
+                float: none;
+                margin-right: 20px;
+                &::after {
+                    right: -13px;
+                }
+            }
+        }
+        .f_sns {
+            float: none;
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            li {
+                padding: 5px;
+                a {
+                    margin: 0;
+                }
+            }
+        }
+        .f_menu li {
+            float: none;
+            display: inline-block;
+            &::after {
+                right: -3px;
+            }
+        }
+    }
+}
 
 // scrollUp
 #scrollUp {
@@ -932,12 +1155,4 @@ footer {
     align-items: center;
     height: 500px;
     background: #999;
-}
-
-// tablet
-@media screen and (max-width: 992px) {
-    .container {
-        width: 96%;
-        margin: 0 auto;
-    }
 }
