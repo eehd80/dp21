@@ -17,6 +17,9 @@
 }
 // tablet
 @media screen and (max-width: 992px) {
+    .wrap {
+        padding-top: 60px;
+    }
     .container {
         width: 96%;
         margin: 0 auto;
@@ -128,6 +131,8 @@
         // border-bottom: 1px solid $border_color;
     }
     .logo {
+        position: relative;
+        z-index: 1;
         a {
             display: block;
             width: 200px;
@@ -209,26 +214,36 @@
         opacity: 0;
         transition: all 0.2s;
         // display: none;
-        > li {
-            > a {
-                display: block;
-                text-align: center;
-                line-height: 30px;
-                color: #888;
-                font-size: 0.9rem;
-                &:hover,
-                &:focus {
-                    color: $prim1;
-                    text-decoration: underline;
-                }
+        a {
+            display: block;
+            text-align: center;
+            line-height: 30px;
+            color: #888;
+            font-size: 0.9rem;
+            &:hover,
+            &:focus {
+                color: $prim1;
+                text-decoration: underline;
             }
         }
     }
 }
 @media screen and (max-width: 992px) {
     #header {
+        background-color: $w;
+        border-bottom: 1px solid rgba(rgba($b, 0.2));
+        &.sticky {
+            .nav-depth1 {
+                > li > a {
+                    color: $w;
+                }
+            }
+        }
         .container {
             height: 60px;
+        }
+        .logo a {
+            background: url(../../images/common/logo.png) 50% / contain no-repeat;
         }
         .navbar {
             // background-color: red;
@@ -245,20 +260,168 @@
             }
         }
         .gnb-wrap {
-            &.active {
-                #gnb {
-                    display: block;
-                    width: 100%;
-                    background-color: $w;
-                    position: fixed;
-                    top: 60px;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                }
-            }
+            // &.active {
+            //     #gnb {
+            //         display: block;
+            //         width: 100%;
+            //         background-color: $w;
+            //         position: fixed;
+            //         top: 60px;
+            //         left: 0;
+            //         right: 0;
+            //         bottom: 0;
+            //     }
+            // }
             .nav-bg {
                 display: none;
+            }
+        }
+        .nav-depth1 {
+            width: 100%;
+            height: 100%;
+            border-top: 2px solid rgba($b, 0.2);
+
+            background-color: #1c2852;
+            > li {
+                float: none;
+                border-bottom: 1px solid rgba($b, 0.2);
+                &:hover {
+                    > a > span {
+                        color: $w;
+                        border-bottom: none;
+                    }
+                }
+                > a > span {
+                    height: 60px;
+                    line-height: 60px;
+                }
+            }
+            .active {
+                background-color: $prim1;
+                .nav-depth2 {
+                    display: block;
+                }
+            }
+        }
+        .nav-depth2 {
+            display: none;
+            position: fixed;
+            top: 62px;
+            left: 150px;
+            bottom: 0;
+            right: 0;
+            height: auto;
+            padding: 6px 0;
+            background-color: $prim2;
+            opacity: 1;
+            a {
+                padding: 10px 30px;
+                text-align: left;
+                color: $w;
+                opacity: 0.8;
+                &:hover {
+                    color: $w;
+                }
+            }
+        }
+    }
+
+    #gnb {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 60px;
+        background-color: $w;
+    }
+}
+
+.burger-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    + label {
+        position: relative;
+        z-index: 1000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin: -2px auto 0;
+        padding: 0 10px;
+        cursor: pointer;
+        // border: 0.5px solid rgba($w, 0.5);
+        border-radius: 27px;
+        color: $w;
+        font-weight: 200;
+        font-size: 18px;
+
+        .burger {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            .bar,
+            &::after,
+            &::before {
+                content: "";
+                width: 26px;
+                height: 1px;
+                display: block;
+                margin: 4px 0;
+                border-radius: 3px;
+                background-color: $w;
+                transition: all 200ms ease-in-out;
+            }
+            .bar {
+                width: 20px;
+            }
+        }
+    }
+
+    &:checked {
+        + label {
+            .burger {
+                span {
+                    display: none;
+                }
+                &:before {
+                    width: 33px;
+                    transform: translate(5px, 4px) rotate(135deg);
+                }
+                &:after {
+                    width: 33px;
+                    transform: translate(5px, -4px) rotate(-135deg);
+                }
+            }
+        }
+
+        ~ #gnb {
+            display: flex;
+            opacity: 1;
+            left: 0;
+        }
+    }
+}
+@media screen and (max-width: 992px) {
+    .burger-input {
+        + label {
+            display: flex;
+            .burger {
+                .bar {
+                    background-color: $b;
+                }
+                &::before,
+                &::after {
+                    background-color: $b;
+                }
             }
         }
     }
@@ -485,7 +648,7 @@
         .swiper-slide {
             height: 60vh;
             transform: scale(0.85);
-            transform-origin: 50% 100%;
+            transform-origin: 50% 50%;
         }
         .swiper-business {
             .business-txt {

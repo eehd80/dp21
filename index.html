@@ -46,15 +46,19 @@
                     <h1 class="logo"><a href="index.html">드림픽쳐스21</a></h1>
                     <nav class="gnb-wrap navbar navbar-expand-md">
                         <!-- Toggler/collapsibe Button -->
-                        <button class="navbar-ham navbar-toggler" type="button" data-toggle="collapse" data-target="#gnb">
-                            <i class="las la-bars"></i>
-                        </button>
+                        <input type="checkbox" id="click" class="burger-input" />
+                        <label for="click" class="burger-label">
+                            <span class="blind">Menu</span>
+                            <div class="burger">
+                                <span class="bar"></span>
+                            </div>
+                        </label>
 
-                        <div class="nav-bg"></div>
-                        <div class="collapse navbar-collapse" id="gnb">
+                        <div id="gnb">
                             <h2 class="blind">주메뉴</h2>
+                            <div class="nav-bg"></div>
                             <ul class="navbar-nav nav-depth1">
-                                <li>
+                                <li class="active">
                                     <a href="#"><span>COMPANY</span></a>
                                     <ul class="nav-depth2">
                                         <li><a href="#">회사소개</a></li>
@@ -192,10 +196,10 @@
                 var swiper = new Swiper(".swiper-business", {
                     spaceBetween: 0,
                     loop: true,
-                    // autoplay: {
-                    //     delay: 2500,
-                    //     disableOnInteraction: false,
-                    // },
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    },
                     navigation: {
                         nextEl: ".swiper-button-next",
                         prevEl: ".swiper-button-prev",
